@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Form Validation</title>
+</head>
+<body>
+<!-- HTML FOR  Main Form -->
+    <div  id="container">
+        <form id="form" action=JavaScript:void(0)>
+            <header>Sign Up or Register</header>
+            <div class="input-control">
+                <label>Username</label>
+                <input id="user-name" type="text" placeholder="Enter Username">
+                <p id="text">Username must be at least of 7 characters</p>
+            </div>
+            <div class="input-control">
+                <label>Email</label>
+                <input id="email" type="email" placeholder="Enter Email">
+            </div>
+            <div class="input-control">
+                <label>Password</label>
+                <input id="password" type="password" placeholder="Enter Password">
+            </div>
+            <div class="input-control">
+                <label>Confirm Password</label>
+                <input id="confirm-pass" type="password" placeholder="Confirm Password">
+            </div>
+            <div class="input-control">
+              <label>Phone Number</label>
+              <input id="number" type="number" placeholder="Enter Phone Number">
+          </div>
+            <div class="input-control">
+                <label>Gender</label>
+                <select id="option-list">
+                    <option value="gender">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="nothing">Preferable not to say </option>
+                </select>
+            </div>
+            <div class="input-control">
+              <label>Date of Birth</label>
+              <input id="dob" type="date" placeholder="Enter Date Of Birth">
+          </div>
+
+            <div class="input-control">
+                <label for="number">Postal Code</label>
+                <input id="postal-code" type="number" placeholder="Enter Postal Code" >
+            </div>
+            <div class="input-control">
+              <label>Address</label>
+              <textarea  cols="20" rows="5" placeholder="Enter Address" id="address" ></textarea>
+          </div>
+            <div class="input-control">
+                <label>Profile Picture</label>
+                <input id="pic" type="file">
+             </div>
+            <button type="submit" onClick="onLogin()">Sign Up</button>
+        </form>
+     </div>
+    <!-- End Of Main Container -->
+
+    <!-- HTML FOR SECOND FORM -->
+    <div id="sec-container">
+        <form id="sec-form" action="JavaScript:void(0)">
+            <h1>Sign In to your account</h1>
+            <div class="input-fields">
+                <label>UserName</label>
+                <input type="text" placeholder="Enter UserName" id="user-value">
+            </div>
+            <div class="input-fields">
+                <label>Email</label>
+                <input type="email" placeholder="Enter Email" id="email-value">
+            </div>
+            <div class="input-fields">
+                <label>Password</label>
+                <input type="text" placeholder="Enter Password" id="pass-value">
+            </div>
+            <div class="input-fields">
+                <label>Confirm Password</label>
+                <input type="text" placeholder="Enter Confirm Password" id="conf-value">
+            </div>
+            <button type="submit" id="login" onClick="signIn()">Log In</button>
+        </form>
+    </div>
+    <!-- END OF SECOND FORM -->
+
+    <!-- START OF DASHBOARD -->
+    <div id="dash-board">
+        <div id="log-out">
+            <button id="sign-out">Sign Out</button>
+        </div>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
+
+</html>
