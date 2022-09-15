@@ -1,104 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <div id="container">
+        <header>Register Or Sign Up</header>
+        <form action="JavaScript:void(0)">
+            <div class="first-form"> 
+                <div class="personal-details">
+                    <span class="title">Personal Details</span>
+                    <div class="fields">
+                        <div class="input-fields">
+                            <label>UserName</label>
+                            <input type="text" id="username" placeholder="Enter UserName" onChange="onName()" onBlur="userLength()" >
+                            <p id="user-para">*This field is Required</p>
+                            <p id="email-length">*Please Provide Valid UserName of 9 characters </p>
+                        </div>
 
-    <link rel="stylesheet" href="style.css">
-    <title>Form Validation</title>
-</head>
-<body>
-<!-- HTML FOR  Main Form -->
-    <div  id="container">
-        <form id="form" action=JavaScript:void(0)>
-            <header>Sign Up or Register</header>
-            <div class="input-control">
-                <label>Username</label>
-                <input id="user-name" type="text" placeholder="Enter Username">
-                <p id="text">Username must be at least of 7 characters</p>
-            </div>
-            <div class="input-control">
-                <label>Email</label>
-                <input id="email" type="email" placeholder="Enter Email">
-            </div>
-            <div class="input-control">
-                <label>Password</label>
-                <input id="password" type="password" placeholder="Enter Password">
-            </div>
-            <div class="input-control">
-                <label>Confirm Password</label>
-                <input id="confirm-pass" type="password" placeholder="Confirm Password">
-            </div>
-            <div class="input-control">
-              <label>Phone Number</label>
-              <input id="number" type="number" placeholder="Enter Phone Number">
-          </div>
-            <div class="input-control">
-                <label>Gender</label>
-                <select id="option-list">
-                    <option value="gender">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="nothing">Preferable not to say </option>
-                </select>
-            </div>
-            <div class="input-control">
-              <label>Date of Birth</label>
-              <input id="dob" type="date" placeholder="Enter Date Of Birth">
-          </div>
+                        <div class="input-fields">
+                            <label>Email</label>
+                            <input type="email" id="email" placeholder="Enter Email" onChange="onEmail()">
+                            <p id="email-para">*This field is Required</p>
 
-            <div class="input-control">
-                <label for="number">Postal Code</label>
-                <input id="postal-code" type="number" placeholder="Enter Postal Code" >
+                        </div>
+
+                        <div class="input-fields">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter Password" id="password" onChange="onPassword()" onBlur="passLength()">
+                            <p id="pass-para">*This field is Required</p>
+                            <p id="pass">*Password must be of 8 characters</pid>
+                        </div>
+
+                        <div class="input-fields">
+                            <label>Confirm Password</label>
+                            <input type="password" placeholder="Enter Confirm Password" id="confirm-pass"onChange="onConfirm()" >
+                            <p id="confirm-para">*This field is Required</p>
+                            <p id="not-match">*Password Not Match</p>
+
+                        </div>
+
+                        <div class="input-fields">
+                            <label>Phone Number</label>
+                            <input type="number" placeholder="Enter Phone Number" id="number"onChange="onNumber()" onBLur="NumLength()">
+                            <p id="num-para">*This field is Required</p>
+                            <p id="num-length">*The Number must be of 11 numbers</p>
+
+                        </div>
+
+                        <div class="input-fields">
+                            <label>Gender</label>
+                            <input type="text" placeholder="Enter Gender"  id="gender"onChange="onGender()">
+                            <p id="gender-para">*This field is Required</p>
+                        </div>
+
+                        <div class="input-fields">
+                            <label>Postal Code</label>
+                            <input type="number" placeholder="Enter Postal Code"  id="postal-code" onChange="onCode()" onBlur="postalError()">
+                            <p id="postal-para">*This field is Required</p>
+                            <p id="postal-num">*Postal Code must be of 6 Number</p>
+                        </div>
+
+                        <div class="input-fields">
+                            <label>Date Of Birth</label>
+                            <input type="date" placeholder="Enter Date Of Birth" id="dob" onChange="onBirth() ">
+                            <p id="dob-para">*This field is Required</p>
+                        </div>
+
+                        <div class="input-fields">
+                            <label>Profile Picture</label>
+                            <input type="file"  id="pic" onChange="onPic()">
+                            <p id="pic-para">*This field is Required</p>
+                        </div>
+
+                        <div class="input-fields">
+                            <label>Address</label>
+                            <textarea  id="address" cols="30" rows="4" placeholder="Enter Address" onChange="onAddress()" onBlur="addressLength()"></textarea>
+                            <p id="address-para">*This field is Required</p>
+                            <p id="address-length">*Address Length must be of 20 characters</p>
+                        </div>
+                    </div>
+
+                    <button class="btn" onCLick="onLogin()">
+                        <span id="btn-text" class="btnText">Submit</span>
+                    </button>
+                </div>
             </div>
-            <div class="input-control">
-              <label>Address</label>
-              <textarea  cols="20" rows="5" placeholder="Enter Address" id="address" ></textarea>
-          </div>
-            <div class="input-control">
-                <label>Profile Picture</label>
-                <input id="pic" type="file">
-             </div>
-            <button type="submit" onClick="onLogin()">Sign Up</button>
         </form>
-     </div>
-    <!-- End Of Main Container -->
+    </div>
 
-    <!-- HTML FOR SECOND FORM -->
     <div id="sec-container">
         <form id="sec-form" action="JavaScript:void(0)">
             <h1>Sign In to your account</h1>
-            <div class="input-fields">
+            <div class="inp-field">
+            <div class="input-field">
                 <label>UserName</label>
                 <input type="text" placeholder="Enter UserName" id="user-value">
             </div>
-            <div class="input-fields">
+            <div class="input-field">
                 <label>Email</label>
                 <input type="email" placeholder="Enter Email" id="email-value">
             </div>
-            <div class="input-fields">
+            <div class="input-field">
                 <label>Password</label>
                 <input type="text" placeholder="Enter Password" id="pass-value">
             </div>
-            <div class="input-fields">
+            <div class="input-field">
                 <label>Confirm Password</label>
                 <input type="text" placeholder="Enter Confirm Password" id="conf-value">
             </div>
-            <button type="submit" id="login" onClick="signIn()">Log In</button>
+        </div>
+            <button type="submit" id="login" onClick="signIn()" class="btn">Log In </button>
         </form>
     </div>
-    <!-- END OF SECOND FORM -->
-
-    <!-- START OF DASHBOARD -->
-    <div id="dash-board">
-        <div id="log-out">
-            <button id="sign-out">Sign Out</button>
-        </div>
-    </div>
 </body>
-<script src="app.js"></script>
-</html>
-
+  <script
+    src="https://kit.fontawesome.com/9b89a40925.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="app.js"></script>
 </html>
