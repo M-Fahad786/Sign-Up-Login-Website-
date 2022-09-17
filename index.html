@@ -8,24 +8,28 @@
     <title>Registration Form</title>
   </head>
   <body>
+    <!-- HTML FOR FIRST FORM -->
     <div id="container">
         <header>Register Or Sign Up</header>
+
         <form action="JavaScript:void(0)">
             <div class="first-form"> 
                 <div class="personal-details">
                     <span class="title">Personal Details</span>
+
                     <div class="fields">
                         <div class="input-fields">
                             <label>UserName</label>
                             <input type="text" id="username" placeholder="Enter UserName" onChange="onName()" onBlur="userLength()" >
                             <p id="user-para">*This field is Required</p>
-                            <p id="email-length">*Please Provide Valid UserName of 9 characters </p>
+                            <p id="email-length">*Please Provide Valid UserName of 9 alphabets </p>
                         </div>
 
                         <div class="input-fields">
                             <label>Email</label>
-                            <input type="email" id="email" placeholder="Enter Email" onChange="onEmail()">
+                            <input type="email" id="email" placeholder="Enter Email" onChange="onEmail()" onBlur="emailValid()">
                             <p id="email-para">*This field is Required</p>
+                            <p id="email-valid">*Please Provide Valid Email</p>
 
                         </div>
 
@@ -79,9 +83,9 @@
 
                         <div class="input-fields">
                             <label>Address</label>
-                            <textarea  id="address" cols="30" rows="4" placeholder="Enter Address" onChange="onAddress()" onBlur="addressLength()"></textarea>
+                            <textarea  id="address" cols="20" rows="4" placeholder="Enter Address" onChange="onAddress()" onBlur="addressLength()"></textarea>
                             <p id="address-para">*This field is Required</p>
-                            <p id="address-length">*Address Length must be of 20 characters</p>
+                            <p id="address-length">*Address Length must be of 15 characters</p>
                         </div>
                     </div>
 
@@ -92,7 +96,9 @@
             </div>
         </form>
     </div>
+    <!-- HTML FOR FIRST FORM ENDED -->
 
+   <!-- HTML FOR SECOND FORM -->
     <div id="sec-container">
         <form id="sec-form" action="JavaScript:void(0)">
             <h1>Sign In to your account</h1>
@@ -117,10 +123,9 @@
             <button type="submit" id="login" onClick="signIn()" class="btn">Log In </button>
         </form>
     </div>
+    <!-- HTML FOR SECOND FORM ENDED -->
 </body>
-  <script
-    src="https://kit.fontawesome.com/9b89a40925.js"
-    crossorigin="anonymous"
-  ></script>
+
+  <!-- JAVASCRIPT AND FONT-AWESOME FILE LINK -->
   <script src="app.js"></script>
 </html>

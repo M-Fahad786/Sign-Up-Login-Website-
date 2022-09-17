@@ -1,5 +1,7 @@
+/* GOOGLE FONT POPPINS */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+/* CODE FORMATTING */
 * {
   margin: 0;
   padding: 0;
@@ -14,9 +16,10 @@ body {
   align-items: center;
   background-color: #4070f4;
 }
+/* CSS FOR FIRST FORM */
 
 #container {
-  /* display: none; */
+  display: none;
   max-width: 900px;
   width: 100%;
   background-color: #fff;
@@ -108,17 +111,39 @@ textarea {
   cursor: pointer;
 }
 
-form button :hover {
+/* form button :hover {
   background-color: #265df2;
-}
+} */
 
 form .buttons {
   display: flex;
   align-items: center;
 }
 
+/* MEDIA QUERY FOR FIRST FORM */
+@media (max-width:750px) {
+  #container form {
+    overflow-y: scroll;
+  }
+  #container form ::-webkit-scrollbar{
+    display: none;
+  }
+  form .fields .input-fields {
+    width: calc(100% / 2 - 15px);
+  }
+}
+
+@media (max-width:550px){
+  form .fields .input-fields {
+    width: 100%
+  }
+}
+
+/* CSS FOR FIRST FORM ENDED */
+
+/* CSS FOR SECOND FORM */
 #sec-container {
-  display: none;
+  /* display: none; */
   max-width: 450px;
   width: 100%;
   background-color: #fff;
@@ -202,10 +227,10 @@ form .buttons {
   cursor: pointer;
 }
 #user-para , #email-para , #pass-para , #confirm-para , #num-para ,#gender-para , #dob-para , #postal-para ,
-#address-para , #pic-para ,#num-length , #pass , #email-length , #address-length{
+#address-para , #pic-para ,#num-length , #pass , #email-length , #address-length , #email-valid{
   display: none;
   color: red;
-  font-size: 13px;
+  font-size: 12px;
 }
 #postal-num {
   color: red;
