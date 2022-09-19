@@ -105,6 +105,7 @@ function onLogin() {
                       if (userPassword.value === userConfirm.value) {
                         input_values.push(values);
                         // STORING ARRAY IN LOCAL STORAGE
+
                         let inp = JSON.stringify(input_values);
                         window.localStorage.setItem("input_values", inp);
                         let container = document.getElementById("container");
@@ -116,6 +117,7 @@ function onLogin() {
                       } else {
                         let not_match = document.getElementById("not-match");
                         not_match.style.display = "block";
+                        userConfirm.style.borderColor = "red";
                       }
                     }
                   }
@@ -136,26 +138,73 @@ let pass_value = document.getElementById("pass-value");
 let conf_value = document.getElementById("conf-value");
 // FUNCTION ON LOGIN
 function signIn() {
-  
-  let storage = window.localStorage.getItem("input_values");
-
-  let items = JSON.parse(storage);
-  console.log(items[0]);
-
-  for (let key in storage) {
-    if (
-      user_value.value !== items[0].name &&
-      email_value.value !== items[0].email &&
-      pass_value.value !== items[0].password &&
-      conf_value.value !== items[0].confirmPass
-    ) {
-      alert("Data Is Incorrect");
-      break;
+  if (user_value.value === "") {
+    let user_error = document.getElementById("user-error");
+    user_error.style.display = "block";
+    user_value.style.border = "1px solid red";
+  } else {
+    if (email_value.value === "") {
+      let email_error = document.getElementById("email-error");
+      email_error.style.display = "block";
+      email_value.style.border = "1px solid  red";
     } else {
-      let main_container = document.getElementById("sec-container");
-      let dashBoard = document.getElementById("dash-board");
-      main_container.style.display = "none";
-      dashBoard.style.display = "flex";
+      if (pass_value === "") {
+        let pass_error = document.getElementById("pass-error");
+        pass_error.style.display = "block";
+        pass_value.style.border = "1px solid red";
+      } else {
+        if (conf_value === "") {
+          let confirm_error = document.getElementById("confirm-error");
+          confirm_error.style.display = "block";
+          conf_value.style.border = "1px solid red";
+        } else {
+          let storage = window.localStorage.getItem("input_values");
+
+          let items = JSON.parse(storage);
+          console.log(items[0]);
+
+          for (let key in storage) {
+            if (user_value.value !== items[0].name) {
+              let error = document.getElementById("error");
+              error.style.display = "block";
+              user_value.style.border = "1px solid red";
+            } else {
+              if (email_value.value !== items[0].email) {
+                let error = document.getElementById("error");
+                error.style.display = "block";
+                email_value.style.border = "1px solid red";
+              } else {
+                if (pass_value.value !== items[0].password) {
+                  let error = document.getElementById("error");
+                  error.style.display = "block";
+                  pass_value.style.border = "1px solid red";
+                } else {
+                  if (conf_value.value !== items[0].confirmPass) {
+                    let error = document.getElementById("error");
+                    error.style.display = "block";
+                    conf_value.style.border = "1px solid red";
+                  } else {
+                    let main_container =
+                      document.getElementById("sec-container");
+                    main_container.style.display = "none";
+                    window.location.replace("./Dashboard/dashboard.html");
+                  }
+                }
+              }
+            }
+
+            // user_value.value !== items[0].name &&
+            // email_value.value !== items[0].email &&
+            // pass_value.value !== items[0].password &&
+            // conf_value.value !== items[0].confirmPass
+          }
+          //   let main_container = document.getElementById("sec-container");
+          //   // let dashBoard = document.getElementById("dash-board");
+          //   main_container.style.display = "none";
+          //   window.location.replace("./Dashboard/dashboard.html");
+          // }
+        }
+      }
     }
   }
 }
@@ -164,7 +213,7 @@ function signIn() {
 
 // ONCHANGE FUNCTIONS
 function onName() {
-  let user_para = document.getElementById("user-para");
+  let user_para = document.getElementById("email-length");
   let user_inp = document.getElementById("username");
   user_para.style.display = "none";
   user_inp.style.borderColor = "green";
@@ -224,14 +273,22 @@ function onAddress() {
   add_inp.style.borderColor = "green";
 }
 // ONBLUR FUNCTIONS
+function userLength() {
+  let user_length = document.getElementById("email-length");
+  let user_para = document.getElementById("user-para");
+  if (userName.value.length >= 5) {
+    user_para.style.display = "none";
+  } else {
+    user_length.style.display = "block";
+    userName.style.borderColor = "red";
+  }
+}
 function NumLength() {
   let num_length = document.getElementById("num-length");
   let num_para = document.getElementById("num-para");
-  if (userNumber.value.length === 11 || userNumber.value === !"") {
+  if (userNumber.value.length === 11) {
     num_length.style.display = "none";
   } else {
-    flag = false;
-    num_para.style.display = "block";
     num_length.style.display = "block";
     userNumber.style.borderColor = "red";
   }
@@ -245,16 +302,13 @@ function passLength() {
     userPassword.style.borderColor = "red";
   }
 }
-function userLength() {
-  let user_length = document.getElementById("email-length");
-  let user_para = document.getElementById("user-para")
-  if (userName.value.length >= 5 || userName.value === !"") {
-    user_para.style.display = "none"
-    user_length.style.display = "none";
+function confirmLength() {
+  let pass_length = document.getElementById("confirm");
+  if (userConfirm.value.length > 8) {
+    pass_length.style.display = "none";
   } else {
-    user_para.style.display = "block"
-    user_length.style.display = "block";
-    userName.style.borderColor = "red";
+    pass_length.style.display = "block";
+    userConfirm.style.borderColor = "red";
   }
 }
 function addressLength() {
@@ -279,10 +333,17 @@ function postalError() {
 function emailValid() {
   let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
   let email_valid = document.getElementById("email-valid");
-  if (userEmail.value.match(pattern) || userEmail.value !== "") {
+  if (userEmail.value.match(pattern)) {
     email_valid.style.display = "none";
   } else {
     email_valid.style.display = "block";
     userEmail.style.borderColor = "red";
+  }
+}
+
+function loginForm(event) {
+  if (event.value !== "") {
+    event.style.borderColor = "green";
+    event.nextSibling.nextSibling.style.display = "none";
   }
 }

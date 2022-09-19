@@ -22,7 +22,7 @@
                             <label>UserName</label>
                             <input type="text" id="username" placeholder="Enter UserName" onChange="onName()" onBlur="userLength()" >
                             <p id="user-para">*This field is Required</p>
-                            <p id="email-length">*Please Provide Valid UserName of 9 alphabets </p>
+                            <p id="email-length">*Please Provide Valid UserName of 10 alphabets </p>
                         </div>
 
                         <div class="input-fields">
@@ -42,10 +42,10 @@
 
                         <div class="input-fields">
                             <label>Confirm Password</label>
-                            <input type="password" placeholder="Enter Confirm Password" id="confirm-pass"onChange="onConfirm()" >
+                            <input type="password" placeholder="Enter Confirm Password" id="confirm-pass"onChange="onConfirm()" onBlur="confirmLength()" >
                             <p id="confirm-para">*This field is Required</p>
                             <p id="not-match">*Password Not Match</p>
-
+                            <p id="confirm">*Password must be of 8 characters</pid>
                         </div>
 
                         <div class="input-fields">
@@ -77,7 +77,7 @@
 
                         <div class="input-fields">
                             <label>Profile Picture</label>
-                            <input type="file"  id="pic" onChange="onPic()">
+                            <input type="file"  id="pic" onChange="onPic()" accept="image/png, image/jpg">
                             <p id="pic-para">*This field is Required</p>
                         </div>
 
@@ -96,6 +96,8 @@
             </div>
         </form>
     </div>
+
+
     <!-- HTML FOR FIRST FORM ENDED -->
 
    <!-- HTML FOR SECOND FORM -->
@@ -105,22 +107,28 @@
             <div class="inp-field">
             <div class="input-field">
                 <label>UserName</label>
-                <input type="text" placeholder="Enter UserName" id="user-value">
+                <input type="text" placeholder="Enter UserName" id="user-value" onBlur="loginForm(this)">
+                <p id="user-error">*This field is Required</p>
             </div>
             <div class="input-field">
                 <label>Email</label>
-                <input type="email" placeholder="Enter Email" id="email-value">
+                <input type="email" placeholder="Enter Email" id="email-value" onBlur="loginForm(this)" >
+                <p id="email-error">*This field is Required</p>
             </div>
             <div class="input-field">
                 <label>Password</label>
-                <input type="text" placeholder="Enter Password" id="pass-value">
+                <input type="text" placeholder="Enter Password" id="pass-value"  onBlur="loginForm(this)">
+                <p id="pass-error">*This field is Required</p>
             </div>
             <div class="input-field">
                 <label>Confirm Password</label>
-                <input type="text" placeholder="Enter Confirm Password" id="conf-value">
+                <input type="text" placeholder="Enter Confirm Password" id="conf-value"  onBlur="loginForm(this)">
+                <p id="confirm-error">*This field is Required</p>
             </div>
+            <p id="error">*Invalid Username or Password </p>
         </div>
             <button type="submit" id="login" onClick="signIn()" class="btn">Log In </button>
+            
         </form>
     </div>
     <!-- HTML FOR SECOND FORM ENDED -->
