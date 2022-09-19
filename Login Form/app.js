@@ -187,22 +187,13 @@ function signIn() {
                     let main_container =
                       document.getElementById("sec-container");
                     main_container.style.display = "none";
-                    window.location.replace("./Dashboard/dashboard.html");
+                    window.location.replace("./DashBoard/dashboard.html")
+
                   }
                 }
               }
             }
-
-            // user_value.value !== items[0].name &&
-            // email_value.value !== items[0].email &&
-            // pass_value.value !== items[0].password &&
-            // conf_value.value !== items[0].confirmPass
           }
-          //   let main_container = document.getElementById("sec-container");
-          //   // let dashBoard = document.getElementById("dash-board");
-          //   main_container.style.display = "none";
-          //   window.location.replace("./Dashboard/dashboard.html");
-          // }
         }
       }
     }
